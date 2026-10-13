@@ -21,7 +21,7 @@ require administrator privileges.
 .
 ├── LICENSE
 ├── README.md
-└── ps1
+└── scripts
     ├── install_open_in_vscode.ps1
     └── uninstall_open_in_vscode.ps1
 ```
@@ -29,8 +29,8 @@ require administrator privileges.
 ## Installation
 
 1. Make sure the requirements are met.
-2. Open the `ps1` folder.
-3. Right-click `install_open_in_vscode.ps1`.
+2. Open the `scripts` folder.
+3. Right-click `install_open_in_vscode.scripts`.
 4. Select **Run with PowerShell**.
 
 When the installer starts, it asks you to select the language for the context
@@ -53,7 +53,7 @@ menu. If Windows blocks script execution, open PowerShell from the repository
 root and run:
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File ".\ps1\install_open_in_vscode.ps1"
+powershell.exe -ExecutionPolicy Bypass -File ".\scripts\install_open_in_vscode.scripts"
 ```
 
 The script automatically searches for VS Code in the `PATH`, the per-user
@@ -61,11 +61,11 @@ installation directory, and the known system installation directories.
 
 ## Uninstallation
 
-Run `uninstall_open_in_vscode.ps1` from the `ps1` folder, or run the following
+Run `uninstall_open_in_vscode.scripts` from the `scripts` folder, or run the following
 command from the repository root:
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File ".\ps1\uninstall_open_in_vscode.ps1"
+powershell.exe -ExecutionPolicy Bypass -File ".\scripts\uninstall_open_in_vscode.scripts"
 ```
 
 This removes only the context menu entries added by this project.
