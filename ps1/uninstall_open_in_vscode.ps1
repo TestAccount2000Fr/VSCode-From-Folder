@@ -13,4 +13,4 @@ foreach ($key in $keysToRemove) {
     }
 }
 
-Write-Host "L'option « Ouvrir dans VS Code » a été supprimée." -ForegroundColor Green
+Write-Host "The option « Open in VS Code » has been removed." -ForegroundColor Green

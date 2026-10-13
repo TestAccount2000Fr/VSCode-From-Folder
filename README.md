@@ -1,29 +1,45 @@
-# Ouvrir dans VS Code depuis le clic droit
+# Open in VS Code from the Windows context menu
 
-Ces scripts ajoutent **Ouvrir dans VS Code** au menu contextuel de Windows :
+These scripts add an **Open in VS Code** option to the Windows context menu:
 
-- sur un dossier sélectionné ;
-- dans l'espace vide d'un dossier ouvert.
+- when right-clicking a selected folder;
+- in the empty space inside an open folder.
 
-L'installation est faite uniquement pour l'utilisateur Windows courant et ne
-demande pas de droits administrateur.
+The installation is performed only for the current Windows user and does not
+require administrator privileges.
 
 ## Installation
 
-1. Vérifiez que Visual Studio Code est installé.
-2. Faites un clic droit sur `install_open_in_vscode.ps1`.
-3. Choisissez **Exécuter avec PowerShell**.
+1. Make sure Visual Studio Code is installed.
+2. Right-click `install_open_in_vscode.ps1`.
+3. Select **Run with PowerShell**.
 
-Si Windows bloque l'exécution des scripts, ouvrez PowerShell puis lancez :
+When the installer starts, it asks you to select the language for the context
+menu option and the installation messages. The installer supports the
+following 10 languages:
+
+1. English - English
+2. French - Français
+3. Spanish - Español
+4. German - Deutsch
+5. Italian - Italiano
+6. Portuguese - Português
+7. Russian - Русский
+8. Arabic - العربية
+9. Japanese - 日本語
+10. Chinese - 中文
+
+The selected language determines the text displayed in the Windows context
+menu. If Windows blocks script execution, open PowerShell and run:
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File ".\install_open_in_vscode.ps1"
 ```
 
-Le script détecte automatiquement VS Code dans le `PATH`, dans l'installation
-utilisateur et dans les installations système connues.
+The script automatically searches for VS Code in the `PATH`, the per-user
+installation directory, and the known system installation directories.
 
-## Désinstallation
+## Uninstallation
 
-Lancez `uninstall_open_in_vscode.ps1` de la même manière. Cette opération
-supprime uniquement les entrées ajoutées par ce projet.
+Run `uninstall_open_in_vscode.ps1` in the same way. This removes only the
+context menu entries added by this project.
