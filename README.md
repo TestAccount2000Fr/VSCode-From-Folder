@@ -1,6 +1,7 @@
 # Open in VS Code from the Windows context menu
 
-These scripts add an **Open in VS Code** option to the Windows context menu:
+These PowerShell scripts add an **Open in VS Code** option to the Windows
+context menu:
 
 - when right-clicking a selected folder;
 - in the empty space inside an open folder.
@@ -8,11 +9,29 @@ These scripts add an **Open in VS Code** option to the Windows context menu:
 The installation is performed only for the current Windows user and does not
 require administrator privileges.
 
+## Requirements
+
+- Windows 10 or Windows 11;
+- PowerShell 5.1 or PowerShell 7;
+- Visual Studio Code installed on the computer.
+
+## Project structure
+
+```text
+.
+├── LICENSE
+├── README.md
+└── ps1
+    ├── install_open_in_vscode.ps1
+    └── uninstall_open_in_vscode.ps1
+```
+
 ## Installation
 
-1. Make sure Visual Studio Code is installed.
-2. Right-click `install_open_in_vscode.ps1`.
-3. Select **Run with PowerShell**.
+1. Make sure the requirements are met.
+2. Open the `ps1` folder.
+3. Right-click `install_open_in_vscode.ps1`.
+4. Select **Run with PowerShell**.
 
 When the installer starts, it asks you to select the language for the context
 menu option and the installation messages. The installer supports the
@@ -30,10 +49,11 @@ following 10 languages:
 10. Chinese - 中文
 
 The selected language determines the text displayed in the Windows context
-menu. If Windows blocks script execution, open PowerShell and run:
+menu. If Windows blocks script execution, open PowerShell from the repository
+root and run:
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File ".\install_open_in_vscode.ps1"
+powershell.exe -ExecutionPolicy Bypass -File ".\ps1\install_open_in_vscode.ps1"
 ```
 
 The script automatically searches for VS Code in the `PATH`, the per-user
@@ -41,5 +61,30 @@ installation directory, and the known system installation directories.
 
 ## Uninstallation
 
-Run `uninstall_open_in_vscode.ps1` in the same way. This removes only the
-context menu entries added by this project.
+Run `uninstall_open_in_vscode.ps1` from the `ps1` folder, or run the following
+command from the repository root:
+
+```powershell
+powershell.exe -ExecutionPolicy Bypass -File ".\ps1\uninstall_open_in_vscode.ps1"
+```
+
+This removes only the context menu entries added by this project.
+
+## Registry changes and security
+
+The installer adds entries only under the current user's registry hive:
+
+```text
+HKCU\Software\Classes\Directory\shell
+HKCU\Software\Classes\Directory\Background\shell
+```
+
+It does not modify system-wide registry settings and does not require
+administrator privileges. As with any PowerShell script downloaded from the
+internet, review the source before running it and only execute it if you trust
+the repository and its contents.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE)
+file for details.
